@@ -1,0 +1,26 @@
+<form [formGroup]="tradeForm" (ngSubmit)="calculateTradePrice()">
+  <div>
+    <label for="tradeType">Trade Type:</label>
+    <select formControlName="tradeType" id="tradeType">
+      <option value="" disabled>Select Trade Type</option>
+      <option value="Buy">Buy</option>
+      <option value="ShortSell">Short Sell</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="highestPrice">Highest Price:</label>
+    <input type="number" formControlName="highestPrice" id="highestPrice">
+  </div>
+  
+  <div>
+    <label for="lowestPrice">Lowest Price:</label>
+    <input type="number" formControlName="lowestPrice" id="lowestPrice">
+  </div>
+
+  <div *ngIf="tradeForm.hasError('invalidPrice')">
+    <p style="color: red;">Invalid price range. Lowest price should be less than highest price.</p>
+  </div>
+
+  <button type="submit" >Calculate Trade Price</button>
+</form>
