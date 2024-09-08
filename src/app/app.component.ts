@@ -47,7 +47,7 @@ export class AppComponent {
   {
     const formValue = this.tradeForm.value;
     let buyPrice = (parseFloat(formValue.lowestPrice) - 0.50);
-    let stopLossPrice = (parseFloat(formValue. highestPrice) + 0.50);
+    let stopLossPrice = (parseFloat(formValue. highestPrice) + (parseFloat(formValue.highestPrice) - parseFloat(formValue.lowestPrice)));
     let targetPrice = (parseFloat(formValue.lowestPrice)) - ((parseFloat(formValue.highestPrice) - parseFloat(formValue.lowestPrice)) * 2)
     this.openAlert(`<div>Buy Price : ${buyPrice} </br> Stop Loss : ${stopLossPrice} </br> Target Price : ${targetPrice} </div>`)
   }
@@ -56,7 +56,7 @@ export class AppComponent {
   {
     const formValue = this.tradeForm.value;
     let buyPrice = (parseFloat(formValue.highestPrice) + 0.50);
-    let stopLossPrice = (parseFloat(formValue.lowestPrice) - 0.50);
+    let stopLossPrice = (parseFloat(formValue.lowestPrice) - (parseFloat(formValue.highestPrice) - parseFloat(formValue.lowestPrice)));
     let targetPrice = (parseFloat(formValue.highestPrice)) + ((parseFloat(formValue.highestPrice) - parseFloat(formValue.lowestPrice)) * 2)
     this.openAlert(`<div>Buy Price : ${buyPrice} </br> Stop Loss : ${stopLossPrice} </br> Target Price : ${targetPrice} </div>`)
 
